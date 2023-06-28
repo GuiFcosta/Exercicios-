@@ -1,5 +1,7 @@
 #include <stdio.h>
-
+//Escreva uma função em C que encontre o maior elemento armazenado numa tabela de inteiros.
+//A função recebe como argumentos o nome e a dimensão da tabela. Devolve como resultado o maior
+//valor existente na tabela.
 int encontrarMaior(int vetor[], int tam){
     int i, posMaior = 0;
 
