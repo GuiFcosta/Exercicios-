@@ -1,0 +1,24 @@
+#include<stdio.h>
+//Escreva uma função em C que encontre o maior elemento armazenado numa tabela de inteiros.
+//A função recebe como argumentos o nome e a dimensão da tabela. Devolve como resultado a
+//posição em que se encontra o maior valor existente na tabela. Se o maior valor surgir várias vezes
+//na tabela, a função devolve a primeira posição em que ele ocorre.
+int maiorElemento(int vetor[], int tam)
+{
+    int i, posMaior = 0;
+
+    for(i=0;i<tam;i++)
+    {
+        if (vetor[i]>vetor[posMaior])
+            posMaior++;
+    }
+    printf("A posicao do maior elemento: %d", posMaior);
+}
+int main()
+{
+    int tabela[10] = {76, 42, 130, 95, 87, 130, 28, 9, 54, 130};
+
+    maiorElemento(tabela,10);
+
+    return 0;
+}
