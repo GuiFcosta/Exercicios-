@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int encontrarMaior(int vetor[], int tam){
+    int i, posMaior = 0;
+
+    for(i = 0; i < tam; i++){
+        if(vetor[i] > vetor[posMaior])
+            posMaior = i;}
+
+    printf("Maior valor: %d",vetor[posMaior]);
+}
+int main() {
+    int nome[12] = {4,2,23,43,66,12,98,123,55,2,1,9};
+
+    encontrarMaior(nome,12);
+
+    return 0;
+}
