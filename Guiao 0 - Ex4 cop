@@ -1,0 +1,40 @@
+#include <stdio.h>
+//Escreva uma função em C que descubra qual o elemento que surge mais vezes numa tabela de
+//inteiros. A função recebe como argumentos o nome e a dimensão da tabela. Devolve como
+//resultado o elemento mais comum da tabela (i.e., o que surge mais vezes). Se existirem vários
+//elementos mais comuns, a função deve devolver o maior deles.
+int maisVezes(int tab[], int tam){
+
+    int maisComum = tab[0], vezesComum = 0, conta = 0;
+
+    for (int j = 0; j < tam; ++j) {
+        for(int i = 0; i < tam; i++){
+            if(tab[i] == tab[j]){
+                conta++;
+            }
+        }
+
+        if(conta == vezesComum && tab[j] > maisComum){
+            maisComum = tab[j];
+            vezesComum = conta;
+        }
+        else if(conta > vezesComum){
+            maisComum = tab[j];
+            vezesComum = conta;
+        }
+
+        conta = 0;
+    }
+    return maisComum;
+}
+
+int main() {
+
+    int tab[8] = {2,4,2,4,4,0,9,11};
+    int mais;
+
+    mais = maisVezes(tab, 8);
+
+    printf("Elemento mais comum: %d\n", mais);
+    return 0;
+}
