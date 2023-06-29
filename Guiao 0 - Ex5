@@ -1,0 +1,35 @@
+//Escreva uma função em C que verifique se um determinado valor se encontra numa tabela de
+//inteiros. A tabela está ordenada de forma crescente e não contém elementos repetidos. A função
+//recebe como argumentos o nome e a dimensão da tabela e o valor a pesquisar. Devolve 1 se o valor
+//estiver na tabela, ou 0, no caso contrário.
+#include<stdio.h>
+int verifica(int tab[],int tam, int valor)
+{
+    int i;
+    for(i=0;i<tam;i++)
+    {
+        if(tab[i]==valor)
+            return 1;
+    }
+    return 0;
+
+}
+int main()
+{
+    int tabela[10] = {2, 4, 6, 8, 9, 11, 13, 15, 16, 18};
+
+    printf("Tabela = ");
+    for(int i = 0;i<10;i++){
+    printf("%d\t",tabela[i]);}
+
+    int valorV;
+    printf("\nDigite um valor para verificar: ");
+    scanf("%d",&valorV);
+    int value = verifica(tabela, 10, valorV);
+
+    if (value == 1)
+        printf("\nO valor %d existe na tabela", valorV);
+    else
+        printf("\nO valor %d nao existe na tabela", valorV);
+
+}
