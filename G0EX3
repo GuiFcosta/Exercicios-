@@ -1,0 +1,29 @@
+//Escreva uma função em C que conte quantas vezes surge o maior elemento numa tabela de
+//inteiros. A função recebe como argumentos o nome e a dimensão da tabela. Devolve como
+//resultado o número de vezes que o maior elemento surge na tabela.
+#include<stdio.h>
+int elementoMaior(int vetor[],int tam)
+{
+    int i, posMaior = 0;
+    int pos = 0;
+
+    for(i=0;i<tam;i++)
+        if(vetor[i]>vetor[posMaior])
+            posMaior = i;
+
+    return vetor[posMaior];
+}
+int main()
+{
+    int tabela[10] = {76, 42, 130, 95, 87, 130, 28, 130, 54, 130};
+    int i, pos = 0;
+
+    int maior = elementoMaior(tabela, 10);
+
+    for(i=0;i<10;i++)
+    {
+        if(maior == tabela[i]){
+            pos++;}
+    }
+    printf("O maior numero aparece %d vezes", pos);
+}
