@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<string.h>
+int capicua(char cap[])
+{
+    int A = -1, B = strlen(cap);
+
+    while(B-- - A++ > 1)
+        if(tolower(cap[A]) != tolower(cap[B]))
+            return 0;
+
+    return 1;
+}
+int main()
+{
+    char cp[50];
+    printf("Escreva uma capicua: ");
+    gets(cp);
+
+    printf("%d",capicua(cp));
+}
