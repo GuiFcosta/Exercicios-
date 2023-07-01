@@ -1,0 +1,21 @@
+#include<stdio.h>
+void verifica(char *tel, char *c)
+{
+    if(tel[0] == '2')
+        c = 'V';
+    else
+        c = 'I';
+    printf("%c", c);
+}
+void main()
+{
+    char num[100];
+    char res;
+    printf("Introduza um numero de telefone: ");
+    gets(num);
+
+    if(strlen(num) == 9)
+        verifica(num, res);
+    else
+        printf("bct");
+}
