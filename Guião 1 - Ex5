@@ -1,0 +1,24 @@
+#include<stdio.h>
+int comuns(int *tabA, int tamA, int *tabB, int tamB)
+{
+    int i, j;
+    int com=0;
+    for(i=0; i<tamA; i++)
+    {
+        for(j=0; j<tamB; j++)
+        {
+            if (tabA[i] == tabB[j])
+                com++;
+        }
+    }
+    printf("Existem %d numeros comuns nas tabelas", com);
+}
+int main()
+{
+    int tab1[10] = {1, 2, 5, 7, 10, 11, 12, 19, 21, 24};
+    int tab2[10] = {1, 3, 5, 8, 11, 12, 15, 20, 21, 23};
+
+    comuns(tab1, 10, tab2, 10);
+
+    return 0;
+}
