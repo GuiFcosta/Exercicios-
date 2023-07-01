@@ -1,0 +1,17 @@
+#include<stdio.h>
+int tres_consecutivos(char *frase)
+{
+
+    if(frase[0]==frase[1] && frase[0]==frase[2])
+        printf("1");
+    else
+        printf("0");
+}
+void main()
+{
+    char phrase[100];
+    printf("Introduza uma frase: ");
+    gets(phrase);
+
+    tres_consecutivos(phrase);
+}
