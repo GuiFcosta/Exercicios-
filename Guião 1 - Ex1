@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+    int a, b , total, *p = &a, *q = &b, *r = &total;
+    printf("Introduza dois numeros: ");
+    scanf("%d %d", p, q);
+    total = *p + *q;
+    printf("a= %d \t b= %d \t total= %d\n", a, b, total);
+    return 0;
+}
