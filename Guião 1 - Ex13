@@ -1,0 +1,18 @@
+#include<stdio.h>
+double produto_escalar(double *a, double *b, int n)
+{
+    double multi = 0;
+    for(int i = 0; i < n; i++)
+    {
+        multi = multi + (a[i] * b[i]);
+    }
+    printf("Produto escalar: %.04f", multi);
+}
+void main()
+{
+    double vetA[10] = {1.23, 2.54, 4.6, 11.76, 14.7, 11, 8.9, 34, 21, 5};
+    double vetB[10] = {0.54, 0.68, 1, 1.29, 3.33, 26, 32, 14, 2.6, 25};
+
+    produto_escalar(&vetA, &vetB, 10);
+
+}
