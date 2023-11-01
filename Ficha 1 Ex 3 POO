@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+int main(){
+string nome
+
+cout<<"digite seu nome";
+getline(cin, nome);
+
+stringstream ss(nome);
+string nomeCompleto;
+vector<string> nomes;
+
+while(ss >> nomes){
+nomes.push_back(nomeCompleto);
+if(nomeCompleto == "Fernando"){
+cout<< "conheco alguem com esse nome Fernando" << endl;
+}
+}
+cout << "nomes separados" << endl;
+for(const string& parteNome : nomes){
+cout << parteNome << endl;
+}
+return 0;
+}
