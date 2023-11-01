@@ -1,0 +1,34 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+string word;
+
+while(true)
+{
+cout<<"type a word or type end to finish";
+cin>>word;
+
+if(word == "end")
+{
+break;
+}
+cout<<"press enter to continue";
+cin.ignore();
+cin.get();
+
+string reverse_word = word;
+reverse(reverse_word.begin(), reverse_word.end());
+
+if(word==reverse_word)
+{
+cout<<"palindrome";
+}
+cout<<"inverted word ->"<<reverse_word<<"<-"<<endl;
+}
+return 0;
+}
