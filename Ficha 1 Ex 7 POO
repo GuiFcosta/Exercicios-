@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+int main() {
+    map<string, int> numeros;
+    numeros["um"] = 1;
+    numeros["dois"] = 2;
+    numeros["três"] = 3;
+    numeros["quatro"] = 4;
+    numeros["cinco"] = 5;
+    numeros["seis"] = 6;
+    numeros["sete"] = 7;
+    numeros["oito"] = 8;
+    numeros["nove"] = 9;
+    numeros["dez"] = 10;
+
+    while (true) {
+        cout << "Digite um número por extenso ou 'fim' para sair: ";
+        string entrada;
+        cin >> entrada;
+
+        if (entrada == "fim") {
+            break;
+        }
+
+        cout << "Agora, digite o número inteiro correspondente: ";
+        int numeroInteiro;
+        cin >> numeroInteiro;
+
+        if (numeros.find(entrada) != numeros.end()) {
+            // É um número por extenso
+            if (numeros[entrada] == numeroInteiro) {
+                cout << "Certo" << endl;
+            } else {
+                cout << "Errado" << endl;
+            }
+        } else {
+            cout << "Entrada inválida. Por favor, digite um número por extenso válido." << endl;
+        }
+    }
+
+    return 0;
+}
