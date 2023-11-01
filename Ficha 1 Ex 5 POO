@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+int main() {
+    map<string, int> numeros;
+    numeros["um"] = 1;
+    numeros["dois"] = 2;
+    numeros["três"] = 3;
+    numeros["quatro"] = 4;
+    numeros["cinco"] = 5;
+    numeros["seis"] = 6;
+    numeros["sete"] = 7;
+    numeros["oito"] = 8;
+    numeros["nove"] = 9;
+    numeros["dez"] = 10;
+
+    while (true) {
+        cout << "Digite um número por extenso ou decimal (ou 'fim' para sair): ";
+        string entrada;
+        getline(cin, entrada);
+
+        if (entrada == "fim") {
+            break;
+        }
+
+        if (numeros.find(entrada) != numeros.end()) {
+            // É um número por extenso
+            cout << "Decimal: " << numeros[entrada] << endl;
+        } else {
+            try {
+                // Tenta converter para número decimal
+                int numeroDecimal = stoi(entrada);
+                if (numeroDecimal >= 1 && numeroDecimal <= 10) {
+                    cout << "Por extenso: ";
+                    for (auto it = numeros.begin(); it != numeros.end(); ++it) {
+                        if (it->second == numeroDecimal) {
+                            cout << it->first << endl;
+                            break;
+                        }
+                    }
+                } else {
+                    cout << "Número fora do intervalo (1-10)!" << endl;
+                }
+            } catch (invalid_argument&) {
+                cout << "Entrada inválida!" << endl;
+            }
+        }
+
+        // Aguarda a tecla Enter para prosseguir
+        cout << "Carregue em Enter para prosseguir";
+        cin.ignore(); // Ignora o caractere Enter anterior
+        cin.get();    // Aguarda o Enter
+    }
+
+    return 0;
+}
