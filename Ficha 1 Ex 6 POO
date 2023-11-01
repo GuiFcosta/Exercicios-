@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <map>
+
+using namespace std;
+
+int main() {
+    map<string, int> numeros;
+    numeros["um"] = 1;
+    numeros["dois"] = 2;
+    numeros["três"] = 3;
+    numeros["quatro"] = 4;
+    numeros["cinco"] = 5;
+    numeros["seis"] = 6;
+    numeros["sete"] = 7;
+    numeros["oito"] = 8;
+    numeros["nove"] = 9;
+    numeros["dez"] = 10;
+
+    string nomeArquivo;
+    cout << "Digite o nome do arquivo de texto: ";
+    cin >> nomeArquivo;
+
+    ifstream arquivo(nomeArquivo);
+
+    if (!arquivo.is_open()) {
+        cout << "Erro ao abrir o arquivo. Certifique-se de que o arquivo existe e o nome está correto." << endl;
+        return 1;
+    }
+
+    string linha;
+
+    while (getline(arquivo, linha)) {
+        if (linha == "fim") {
+            break;
+        }
+
+        if (numeros.find(linha) != numeros.end()) {
+            // É um número por extenso
+            cout << "Decimal: " << numeros[linha] << endl;
+        } else {
+            try {
+                // Tenta converter para número decimal
+                int numeroDecimal = stoi(linha);
+                if (numeroDecimal >= 1 && numeroDecimal <= 10) {
+                    cout << "Por extenso: ";
+                    for (auto it = numeros.begin(); it != numeros.end(); ++it) {
+                        if (it->second == numeroDecimal) {
+                            cout << it->first << endl;
+                            break;
+                        }
+                    }
+                } else {
+                    cout << "Número fora do intervalo (1-10)!" << endl;
+                }
+            } catch (invalid_argument&) {
+                cout << "Entrada inválida!" << endl;
+            }
+        }
+    }
+
+    arquivo.close();
+    return 0;
+}
